@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dagcvxo7hdiy6"]
+
+[node name="MainMenu" type="Control" unique_id=260563499]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=201979593]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 14.0
+offset_right = 142.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 48
+text = "Gatogramacion"
+
+[node name="Lessons" type="HFlowContainer" parent="." unique_id=267776592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 101.0
+offset_right = -16.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level" type="Button" parent="Lessons" unique_id=1793665764]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Formal" type="Label" parent="Lessons/Level" unique_id=1663217331]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 168.0
+offset_right = -14.0
+offset_bottom = 191.0
+grow_horizontal = 2
+text = "Hola mundo"
+
+[node name="Story" type="Label" parent="Lessons/Level" unique_id=1549672895]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = -12.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Reportes "
+autowrap_mode = 3
