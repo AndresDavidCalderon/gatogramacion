@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b154nr2oiky0d" path="res://assets/hallway.png" id="5_0khsb"]
 [ext_resource type="Texture2D" uid="uid://c5p5em36gc1ju" path="res://assets/flat_floor_tile.png" id="6_nbw0o"]
 [ext_resource type="Texture2D" uid="uid://cl2ohgw5cdx4e" path="res://assets/white_playing with ball.png" id="7_kkvwo"]
+[ext_resource type="Texture2D" uid="uid://dod70oqdlad08" path="res://assets/terminal_message.png" id="8_2shi2"]
+[ext_resource type="Texture2D" uid="uid://bk3kcj0v1gcu6" path="res://assets/white_playing_with_ball_standing.png" id="9_cqi0i"]
+[ext_resource type="Texture2D" uid="uid://csin305uua058" path="res://assets/run_button.png" id="10_welot"]
+[ext_resource type="Texture2D" uid="uid://dpfhpnlf1qr85" path="res://assets/white_playing_with_ball_tapping_standing.png" id="11_mayk3"]
+[ext_resource type="Texture2D" uid="uid://re8105hhc7cq" path="res://assets/high_dpi/curved_arrow.png" id="12_g7ooy"]
 
 [sub_resource type="Theme" id="Theme_6cska"]
 default_font = ExtResource("1_4lnk7")
@@ -152,7 +157,7 @@ offset_bottom = 219.0
 text = "Así que quiere hacer un botón que haga que en la terminal del gato negro diga lo que esta haciendo siempre"
 autowrap_mode = 3
 
-[node name="Button" type="Control" parent="Slides/List" unique_id=1579592808]
+[node name="Terminal" type="Control" parent="Slides/List" unique_id=1579592808]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,13 +165,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureRect" parent="Slides/List/Button" unique_id=209236170]
+[node name="Background" type="TextureRect" parent="Slides/List/Terminal" unique_id=209236170]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("8_2shi2")
+
+[node name="Label" type="Label" parent="Slides/List/Terminal" unique_id=2072519731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 534.0
+offset_top = 179.0
+offset_right = -554.0
+offset_bottom = -436.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Nada"
 
 [node name="Next" type="Button" parent="Slides" unique_id=1986871738]
 layout_mode = 0
@@ -175,3 +195,91 @@ offset_top = 591.0
 offset_right = 1124.0
 offset_bottom = 622.0
 text = "Siguiente"
+
+[node name="Challenge" type="Control" parent="." unique_id=1860338072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Challenge" unique_id=1825490730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.63383067, 0.8039524, 0.7761071, 1)
+
+[node name="WhiteIdle" type="TextureRect" parent="Challenge" unique_id=1664189756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = 310.0
+offset_right = -949.0
+texture = ExtResource("9_cqi0i")
+
+[node name="RunButton" type="TextureButton" parent="Challenge" unique_id=1356518456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 442.0
+offset_right = -980.0
+offset_bottom = -174.0
+scale = Vector2(4.3554683, 4.3554683)
+texture_normal = ExtResource("10_welot")
+
+[node name="PressingCat" type="TextureRect" parent="Challenge" unique_id=1535774723]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_left = -136.0
+offset_top = 314.0
+offset_right = -952.0
+offset_bottom = 0.05596924
+texture = ExtResource("11_mayk3")
+stretch_mode = 5
+
+[node name="CurvedArrow" type="TextureRect" parent="Challenge" unique_id=499414401]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 333.0
+offset_right = 309.0
+offset_bottom = 479.0
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("12_g7ooy")
+
+[node name="Label" type="Label" parent="Challenge" unique_id=1048571408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 248.0
+offset_right = -857.0
+offset_bottom = -295.0
+text = "Presiona este 
+botón para probar
+tu codigo"
+
+[node name="TextEdit" type="TextEdit" parent="Challenge" unique_id=172926963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = 23.0
+offset_right = -291.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Slides/Next" to="Slides" method="_on_next_pressed"]
