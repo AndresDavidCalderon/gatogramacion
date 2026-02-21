@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dagcvxo7hdiy6"]
 
+[ext_resource type="Script" uid="uid://cqyfan5cxtyb5" path="res://main_menu/level_button.gd" id="1_d3a7t"]
+[ext_resource type="PackedScene" uid="uid://crcjo8kj7pm4l" path="res://levels/reports.tscn" id="2_3shxk"]
+
 [node name="MainMenu" type="Control" unique_id=260563499]
 layout_mode = 3
 anchors_preset = 15
@@ -32,6 +35,8 @@ grow_vertical = 2
 [node name="Level" type="Button" parent="Lessons" unique_id=1793665764]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+script = ExtResource("1_d3a7t")
+level_scene = ExtResource("2_3shxk")
 
 [node name="Formal" type="Label" parent="Lessons/Level" unique_id=1663217331]
 layout_mode = 1

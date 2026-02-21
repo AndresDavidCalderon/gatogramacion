@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b6lvmaqnnxd4r" path="res://assets/white_cat_talking.png" id="1_q1q1h"]
 [ext_resource type="Script" uid="uid://b0jgnp5yiu5gb" path="res://levels/slides.gd" id="2_6cska"]
 [ext_resource type="Texture2D" uid="uid://bcgdcdkg2ybqn" path="res://assets/black _cat_conversating.png" id="2_rhmom"]
+[ext_resource type="Script" uid="uid://d2bxtd2b3ma53" path="res://levels/level_flow.gd" id="3_idiem"]
 [ext_resource type="Texture2D" uid="uid://b154nr2oiky0d" path="res://assets/hallway.png" id="5_0khsb"]
 [ext_resource type="Texture2D" uid="uid://c5p5em36gc1ju" path="res://assets/flat_floor_tile.png" id="6_nbw0o"]
 [ext_resource type="Texture2D" uid="uid://cl2ohgw5cdx4e" path="res://assets/white_playing with ball.png" id="7_kkvwo"]
@@ -32,6 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_6cska")
+script = ExtResource("3_idiem")
 
 [node name="Slides" type="Control" parent="." unique_id=1853959380]
 layout_mode = 1
@@ -79,33 +81,42 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="WhiteCatTalking" type="TextureRect" parent="Slides/List/Conversation" unique_id=376454741]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 298.0
 offset_top = 321.0
-offset_right = 1200.3365
-offset_bottom = 1017.1847
+offset_right = 48.336548
+offset_bottom = 369.1847
 scale = Vector2(0.29589847, 0.29589847)
 texture = ExtResource("1_q1q1h")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="WhiteCatTalking2" type="TextureRect" parent="Slides/List/Conversation" unique_id=2073975164]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 484.99997
 offset_top = 311.0
-offset_right = 1623.9045
-offset_bottom = 1108.5709
+offset_right = 471.90454
+offset_bottom = 460.57092
 scale = Vector2(0.29589847, 0.29589847)
 texture = ExtResource("2_rhmom")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Slides/List/Conversation" unique_id=1128105788]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 141.0
 offset_top = 104.0
-offset_right = 933.0
-offset_bottom = 245.0
+offset_right = -219.0
+offset_bottom = -403.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Los gatos siempre quieren estar enterados de que está haciendo el otro, pero a veces hay poco tiempo"
@@ -113,6 +124,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Message" type="Control" parent="Slides/List" unique_id=1768626612]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -164,6 +176,7 @@ text = "Así que quiere hacer un botón que haga que en la terminal del gato neg
 autowrap_mode = 3
 
 [node name="Terminal" type="Control" parent="Slides/List" unique_id=1579592808]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,14 +208,20 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Nada"
 
 [node name="Next" type="Button" parent="Slides" unique_id=1986871738]
-layout_mode = 0
-offset_left = 1044.0
-offset_top = 591.0
-offset_right = 1124.0
-offset_bottom = 622.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1032.0
+offset_top = 597.0
+offset_right = -35.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Siguiente"
 
 [node name="Challenge" type="Control" parent="." unique_id=1860338072]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -337,7 +356,8 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"consoleLabel"
-text = "nada"
+text = "nada
+y mas nada"
 
 [node name="RealResult" type="PanelContainer" parent="Challenge" unique_id=834244841]
 layout_mode = 1
@@ -362,4 +382,5 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_vertical = 1
 
+[connection signal="finished" from="Slides" to="." method="_on_slides_finished"]
 [connection signal="pressed" from="Slides/Next" to="Slides" method="_on_next_pressed"]
