@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dod70oqdlad08" path="res://assets/terminal_message.png" id="8_2shi2"]
 [ext_resource type="Texture2D" uid="uid://bk3kcj0v1gcu6" path="res://assets/white_playing_with_ball_standing.png" id="9_cqi0i"]
 [ext_resource type="Texture2D" uid="uid://csin305uua058" path="res://assets/run_button.png" id="10_welot"]
+[ext_resource type="Script" uid="uid://c6cybvy57c3xq" path="res://levels/challenge.gd" id="11_2j4e5"]
 [ext_resource type="Texture2D" uid="uid://dpfhpnlf1qr85" path="res://assets/white_playing_with_ball_tapping_standing.png" id="11_mayk3"]
 [ext_resource type="Texture2D" uid="uid://re8105hhc7cq" path="res://assets/high_dpi/curved_arrow.png" id="12_g7ooy"]
 
@@ -20,6 +21,7 @@ default_font = ExtResource("1_4lnk7")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 32
 consoleLabel/base_type = &"Label"
+consoleLabel/colors/font_color = Color(1, 1, 1, 1)
 consoleLabel/font_sizes/font_size = 16
 consoleLabel/fonts/font = ExtResource("1_oec3d")
 
@@ -36,6 +38,7 @@ theme = SubResource("Theme_6cska")
 script = ExtResource("3_idiem")
 
 [node name="Slides" type="Control" parent="." unique_id=1853959380]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,13 +224,13 @@ grow_vertical = 2
 text = "Siguiente"
 
 [node name="Challenge" type="Control" parent="." unique_id=1860338072]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("11_2j4e5")
 
 [node name="ColorRect" type="ColorRect" parent="Challenge" unique_id=1825490730]
 layout_mode = 1
@@ -321,7 +324,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Nuestro resultado:"
 
-[node name="TextEdit" type="TextEdit" parent="Challenge" unique_id=172926963]
+[node name="CodeInput" type="TextEdit" parent="Challenge" unique_id=172926963]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -381,6 +384,8 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="Challenge/RealResult/MarginContainer" unique_id=1237049563]
 layout_mode = 2
 size_flags_vertical = 1
+theme_type_variation = &"consoleLabel"
 
 [connection signal="finished" from="Slides" to="." method="_on_slides_finished"]
 [connection signal="pressed" from="Slides/Next" to="Slides" method="_on_next_pressed"]
+[connection signal="pressed" from="Challenge/RunButton" to="Challenge" method="_on_run_button_pressed"]
