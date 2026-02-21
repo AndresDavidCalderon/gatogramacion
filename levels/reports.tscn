@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crcjo8kj7pm4l"]
 
 [ext_resource type="FontFile" uid="uid://djsqix7mf6bpc" path="res://assets/fonts/Super Wonder.ttf" id="1_4lnk7"]
+[ext_resource type="FontFile" uid="uid://dinyxytm00gbu" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="1_oec3d"]
 [ext_resource type="Texture2D" uid="uid://b6lvmaqnnxd4r" path="res://assets/white_cat_talking.png" id="1_q1q1h"]
 [ext_resource type="Script" uid="uid://b0jgnp5yiu5gb" path="res://levels/slides.gd" id="2_6cska"]
 [ext_resource type="Texture2D" uid="uid://bcgdcdkg2ybqn" path="res://assets/black _cat_conversating.png" id="2_rhmom"]
@@ -17,6 +18,11 @@
 default_font = ExtResource("1_4lnk7")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 32
+consoleLabel/base_type = &"Label"
+consoleLabel/font_sizes/font_size = 16
+consoleLabel/fonts/font = ExtResource("1_oec3d")
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_g7ooy"]
 
 [node name="Reports" type="Control" unique_id=854457623]
 layout_mode = 3
@@ -257,7 +263,7 @@ offset_bottom = 479.0
 scale = Vector2(0.671875, 0.671875)
 texture = ExtResource("12_g7ooy")
 
-[node name="Label" type="Label" parent="Challenge" unique_id=1048571408]
+[node name="ButtonDescription" type="Label" parent="Challenge" unique_id=1048571408]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -270,6 +276,32 @@ text = "Presiona este
 botón para probar
 tu codigo"
 
+[node name="Label2" type="Label" parent="Challenge" unique_id=1181504653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 838.0
+offset_top = 22.0
+offset_right = -61.0
+offset_bottom = -593.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resultado esperado:"
+
+[node name="Label3" type="Label" parent="Challenge" unique_id=725848103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 839.0
+offset_top = 222.0
+offset_right = -60.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nuestro resultado:"
+
 [node name="TextEdit" type="TextEdit" parent="Challenge" unique_id=172926963]
 layout_mode = 1
 anchors_preset = 15
@@ -277,9 +309,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 328.0
 offset_top = 23.0
-offset_right = -291.0
+offset_right = -339.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_oec3d")
+placeholder_text = "¡Tu codigo va aquí!"
+syntax_highlighter = SubResource("CodeHighlighter_g7ooy")
+draw_tabs = true
+
+[node name="WaitedResult" type="PanelContainer" parent="Challenge" unique_id=652083915]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 59.0
+offset_right = 1106.0
+offset_bottom = 196.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Challenge/WaitedResult" unique_id=23391124]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Challenge/WaitedResult/MarginContainer" unique_id=1445879551]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"consoleLabel"
+text = "nada"
+
+[node name="RealResult" type="PanelContainer" parent="Challenge" unique_id=834244841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 835.0
+offset_top = 257.0
+offset_right = -38.0
+offset_bottom = -249.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Challenge/RealResult" unique_id=938657007]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Challenge/RealResult/MarginContainer" unique_id=1237049563]
+layout_mode = 2
+size_flags_vertical = 1
 
 [connection signal="pressed" from="Slides/Next" to="Slides" method="_on_next_pressed"]
