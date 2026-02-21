@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crcjo8kj7pm4l"]
 
-[ext_resource type="FontFile" uid="uid://djsqix7mf6bpc" path="res://assets/fonts/Super Wonder.ttf" id="1_4lnk7"]
+[ext_resource type="Theme" uid="uid://nd1kjphk3fxq" path="res://theme.tres" id="1_2j4e5"]
 [ext_resource type="FontFile" uid="uid://dinyxytm00gbu" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="1_oec3d"]
 [ext_resource type="Texture2D" uid="uid://b6lvmaqnnxd4r" path="res://assets/white_cat_talking.png" id="1_q1q1h"]
 [ext_resource type="Script" uid="uid://b0jgnp5yiu5gb" path="res://levels/slides.gd" id="2_6cska"]
@@ -16,15 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dpfhpnlf1qr85" path="res://assets/white_playing_with_ball_tapping_standing.png" id="11_mayk3"]
 [ext_resource type="Texture2D" uid="uid://re8105hhc7cq" path="res://assets/high_dpi/curved_arrow.png" id="12_g7ooy"]
 
-[sub_resource type="Theme" id="Theme_6cska"]
-default_font = ExtResource("1_4lnk7")
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 32
-consoleLabel/base_type = &"Label"
-consoleLabel/colors/font_color = Color(1, 1, 1, 1)
-consoleLabel/font_sizes/font_size = 16
-consoleLabel/fonts/font = ExtResource("1_oec3d")
-
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_g7ooy"]
 
 [node name="Reports" type="Control" unique_id=854457623]
@@ -34,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_6cska")
+theme = ExtResource("1_2j4e5")
 script = ExtResource("3_idiem")
 
 [node name="Slides" type="Control" parent="." unique_id=1853959380]
@@ -303,10 +294,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 838.0
-offset_top = 22.0
-offset_right = -61.0
-offset_bottom = -593.0
+offset_left = 820.0
+offset_top = 13.0
+offset_right = -79.0
+offset_bottom = -602.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Resultado esperado:"
@@ -316,10 +307,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 839.0
-offset_top = 222.0
-offset_right = -60.0
-offset_bottom = -393.0
+offset_left = 817.0
+offset_top = 194.0
+offset_right = -82.0
+offset_bottom = -421.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Nuestro resultado:"
@@ -329,10 +320,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 328.0
+offset_left = 286.0
 offset_top = 23.0
-offset_right = -339.0
-offset_bottom = -15.0
+offset_right = -362.0
+offset_bottom = -292.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -343,10 +334,10 @@ draw_tabs = true
 
 [node name="WaitedResult" type="PanelContainer" parent="Challenge" unique_id=652083915]
 layout_mode = 0
-offset_left = 837.0
-offset_top = 59.0
-offset_right = 1106.0
-offset_bottom = 196.0
+offset_left = 819.0
+offset_top = 50.0
+offset_right = 1088.0
+offset_bottom = 187.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Challenge/WaitedResult" unique_id=23391124]
 layout_mode = 2
@@ -367,10 +358,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 835.0
-offset_top = 257.0
-offset_right = -38.0
-offset_bottom = -249.0
+offset_left = 813.0
+offset_top = 229.0
+offset_right = -60.0
+offset_bottom = -277.0
 grow_horizontal = 2
 grow_vertical = 2
 

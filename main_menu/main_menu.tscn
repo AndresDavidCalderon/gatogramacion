@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dagcvxo7hdiy6"]
 
+[ext_resource type="Theme" uid="uid://nd1kjphk3fxq" path="res://theme.tres" id="1_3shxk"]
 [ext_resource type="Script" uid="uid://cqyfan5cxtyb5" path="res://main_menu/level_button.gd" id="1_d3a7t"]
 [ext_resource type="PackedScene" uid="uid://crcjo8kj7pm4l" path="res://levels/reports.tscn" id="2_3shxk"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3shxk")
 
 [node name="Label" type="Label" parent="." unique_id=201979593]
 layout_mode = 0

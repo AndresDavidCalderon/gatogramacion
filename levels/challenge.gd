@@ -22,7 +22,7 @@ func _on_run_button_pressed() -> void:
 		file.store_string($CodeInput.text)
 		file.close()
 	else:
-		print("Error opening file")
+		print("")
 	
 	running_thread = Thread.new()
 	running_thread.start(run_python.bind($CodeInput.text))
