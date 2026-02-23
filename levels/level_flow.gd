@@ -9,3 +9,9 @@ func _ready() -> void:
 func _on_slides_finished() -> void:
 	$Slides.hide()
 	$Challenge.show()
+
+func _on_challenge_execution_finished(result: String) -> void:
+	var expected=$Challenge/WaitedResult/MarginContainer/Label.text.to_lower().strip_edges()
+	if expected==result.to_lower().strip_edges():
+		$Challenge.hide()
+		$Congratulations.show()
