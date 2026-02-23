@@ -15,8 +15,48 @@
 [ext_resource type="Script" uid="uid://c6cybvy57c3xq" path="res://levels/challenge.gd" id="11_2j4e5"]
 [ext_resource type="Texture2D" uid="uid://dpfhpnlf1qr85" path="res://assets/white_playing_with_ball_tapping_standing.png" id="11_mayk3"]
 [ext_resource type="Texture2D" uid="uid://re8105hhc7cq" path="res://assets/high_dpi/curved_arrow.png" id="12_g7ooy"]
+[ext_resource type="Texture2D" uid="uid://q05sfvfg0r7o" path="res://assets/black_cat_experiment_noting.png" id="16_v1t26"]
+[ext_resource type="Script" uid="uid://b4f0ktxuk3nke" path="res://levels/black_cat.gd" id="17_271e0"]
+[ext_resource type="Texture2D" uid="uid://5yfvbthkir4c" path="res://assets/black_cat_experimenting.png" id="18_uiiyx"]
+[ext_resource type="Texture2D" uid="uid://ctx7xei7uq7mw" path="res://assets/black_cat_experiment_notice.png" id="19_2lqxv"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_g7ooy"]
+
+[sub_resource type="Animation" id="Animation_2j4e5"]
+resource_name = "Caret"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Caret:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666666, 0.33333334, 0.53333336, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_v1t26"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Caret:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_271e0"]
+_data = {
+&"Caret": SubResource("Animation_2j4e5"),
+&"RESET": SubResource("Animation_v1t26")
+}
 
 [node name="Reports" type="Control" unique_id=854457623]
 layout_mode = 3
@@ -83,6 +123,8 @@ offset_left = 298.0
 offset_top = 321.0
 offset_right = 48.336548
 offset_bottom = 369.1847
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.29589847, 0.29589847)
 texture = ExtResource("1_q1q1h")
 expand_mode = 3
@@ -97,6 +139,8 @@ offset_left = 484.99997
 offset_top = 311.0
 offset_right = 471.90454
 offset_bottom = 460.57092
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.29589847, 0.29589847)
 texture = ExtResource("2_rhmom")
 expand_mode = 3
@@ -111,6 +155,8 @@ offset_left = 141.0
 offset_top = 104.0
 offset_right = -219.0
 offset_bottom = -403.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Los gatos siempre quieren estar enterados de que está haciendo el otro, pero a veces hay poco tiempo"
@@ -232,6 +278,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.63383067, 0.8039524, 0.7761071, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="Challenge" unique_id=1325808310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 367.0
+offset_right = -767.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36078432, 0.38039216, 0.3882353, 1)
+
 [node name="WhiteIdle" type="TextureRect" parent="Challenge" unique_id=1664189756]
 layout_mode = 1
 anchors_preset = 15
@@ -240,6 +297,8 @@ anchor_bottom = 1.0
 offset_left = -135.0
 offset_top = 310.0
 offset_right = -949.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("9_cqi0i")
 
 [node name="RunButton" type="TextureButton" parent="Challenge" unique_id=1356518456]
@@ -251,6 +310,8 @@ offset_left = 140.0
 offset_top = 442.0
 offset_right = -980.0
 offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4.3554683, 4.3554683)
 texture_normal = ExtResource("10_welot")
 
@@ -285,6 +346,8 @@ offset_left = 55.0
 offset_top = 248.0
 offset_right = -857.0
 offset_bottom = -295.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Presiona este 
 botón para probar
 tu codigo"
@@ -353,7 +416,7 @@ theme_type_variation = &"consoleLabel"
 text = "nada
 y mas nada"
 
-[node name="RealResult" type="PanelContainer" parent="Challenge" unique_id=834244841]
+[node name="RealResult" type="Panel" parent="Challenge" unique_id=1838501964]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -365,18 +428,97 @@ offset_bottom = -277.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Challenge/RealResult" unique_id=938657007]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[node name="Caret" type="Label" parent="Challenge/RealResult" unique_id=1600356171]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 43.0
+theme_type_variation = &"consoleLabel"
+text = ">"
 
-[node name="Label" type="Label" parent="Challenge/RealResult/MarginContainer" unique_id=1237049563]
-layout_mode = 2
+[node name="Result" type="Label" parent="Challenge/RealResult" unique_id=1237049563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 1
 theme_type_variation = &"consoleLabel"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Challenge/RealResult" unique_id=1001002651]
+libraries/ = SubResource("AnimationLibrary_271e0")
+
+[node name="BlackCat" type="TextureRect" parent="Challenge" unique_id=1636127151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = 182.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_v1t26")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("17_271e0")
+experimenting_texture = ExtResource("18_uiiyx")
+normal_texture = ExtResource("16_v1t26")
+notice_texture = ExtResource("19_2lqxv")
+
+[node name="Congratulations" type="Control" parent="." unique_id=1408658692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Congratulations" unique_id=1172648706]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.63383067, 0.8039524, 0.7761071, 1)
+
+[node name="Label" type="Label" parent="Congratulations" unique_id=250460005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 63.0
+offset_right = -364.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Reporte entregado con exito"
+
+[node name="Label2" type="Label" parent="Congratulations" unique_id=460443109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 782.0
+offset_top = 333.0
+offset_right = -84.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Estamos mas cerca de 
+hacer ciencia"
+
 [connection signal="finished" from="Slides" to="." method="_on_slides_finished"]
 [connection signal="pressed" from="Slides/Next" to="Slides" method="_on_next_pressed"]
+[connection signal="execution_finished" from="Challenge" to="Challenge/BlackCat" method="_on_challenge_execution_finished"]
 [connection signal="pressed" from="Challenge/RunButton" to="Challenge" method="_on_run_button_pressed"]

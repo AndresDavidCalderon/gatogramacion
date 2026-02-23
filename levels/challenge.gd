@@ -12,7 +12,8 @@ func _process(_delta: float) -> void:
 	if running_thread and not running_thread.is_alive():
 		var result = running_thread.wait_to_finish()
 		emit_signal("execution_finished", result)
-		$RealResult/MarginContainer/Label.text=result
+		$RealResult/Result.text=result
+		$RealResult/AnimationPlayer.play("Caret")
 		running_thread = null
 		
 

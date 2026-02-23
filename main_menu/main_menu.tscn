@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://nd1kjphk3fxq" path="res://theme.tres" id="1_3shxk"]
 [ext_resource type="Script" uid="uid://cqyfan5cxtyb5" path="res://main_menu/level_button.gd" id="1_d3a7t"]
 [ext_resource type="PackedScene" uid="uid://crcjo8kj7pm4l" path="res://levels/reports.tscn" id="2_3shxk"]
+[ext_resource type="Texture2D" uid="uid://bvog4smrj7dwr" path="res://assets/light_background.png" id="4_bws42"]
+[ext_resource type="Texture2D" uid="uid://duv1h7aya8s0k" path="res://assets/report_sheet.png" id="5_3f7m4"]
 
 [node name="MainMenu" type="Control" unique_id=260563499]
 layout_mode = 3
@@ -12,6 +14,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3shxk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=620132687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bws42")
 
 [node name="Label" type="Label" parent="." unique_id=201979593]
 layout_mode = 0
@@ -46,9 +57,10 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_left = 7.0
 offset_top = 168.0
-offset_right = -14.0
-offset_bottom = 191.0
+offset_right = -117.0
+offset_bottom = 185.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 16
 text = "Hola mundo"
 
 [node name="Story" type="Label" parent="Lessons/Level" unique_id=1549672895]
@@ -63,3 +75,17 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Reportes "
 autowrap_mode = 3
+
+[node name="ReportSheet" type="TextureRect" parent="Lessons/Level" unique_id=1423374985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 46.0
+offset_right = -40.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3f7m4")
+stretch_mode = 6
